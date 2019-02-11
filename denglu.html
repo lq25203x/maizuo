@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        *{margin:0;padding:0;}
+        .logo{width:100%;position:fixed;top:80px;}
+     img{width:60px;margin:0 auto;position:absolute;left:50%;}
+     form{
+         position:fixed;
+         top:200px;
+         height:224px;
+         width:100%;
+         box-sizing: border-box;
+         padding:0 20px;
+     }
+     form input:nth-of-type(1){position:absolute;top:10px;height:55px;width:100%;border:none;outline:none;}
+     form input:nth-of-type(2){position:absolute;top:75px;height:55px;width:100%;border:none;outline:none;}
+     .btn{position:absolute;width:100%;height:36px;background:#ff5500;color:#fff;font-size:12px;text-align: center;border:0;bottom:0;border-radius: 2px;}
+     .btn:hover{background:#ff2212;color:#ededed;}
+     .hq{color:#999;position:fixed;top:226px;right:20px;cursor: pointer;}
+     .shuru{color:red;position:fixed;top:270px;
+    left:20px;display:none;}
+     .X{position:fixed;top:226px;right:120px;background:#ededed;width:20px;color:#fff;text-align: center;border-radius: 50%;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="logo"><img src="img/logo.19ca0be.png" alt=""></div>
+    <form action="">
+        <input type="text" placeholder="手机号" style="border-bottom:1px solid #ededed;" id="tel">
+        <input type="text" placeholder="验证码" style="border-bottom:1px solid #ededed;">
+        <button class="btn">登录</button>
+
+    </form>
+    <div class="hq">获取验证码</div>
+    <div class="X" >X</div>
+    <div class="shuru">请输入手机号</div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var tel=document.getElementById("tel")
+    	tel.onkeyup=function(){
+				//判断填写内容与规则是否匹配
+				var telreg=/^1(3|4|5|7|8)\d{9}$/;
+				var res=telreg.test(tel.value);
+				if(res===true){                   
+					$(".hq").css("color","#333")
+				}else{
+					$(".hq").css("color","#999")
+				}
+                $(".X").on("click",function(){
+                   tel.value="手机号"
+                })
+            }
+            function isnull(val) {
+
+        var str = val.replace(/(^\s*)|(\s*$)/g, '');//去除空格;
+
+        if (str == '' || str == undefined || str == null) {
+            //return true;
+            console.log('空')
+        } else {
+            //return false;
+            console.log('非空');
+        }
+    }
+
+    $(".btn").click = function () {
+        $(".shuru").css("display","block")
+        console.log(123)
+        isnull( tel.value );
+
+    }
+    </script>
+</body>
+</html>
+
+
+
